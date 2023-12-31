@@ -15,9 +15,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build Docker Image
-        run: docker-compose build
       - name: Test
-        run: docker-compose run --rm sh -c "python manage.py test"
+        run: python manage.py test
       - name: Lint
-        run: docker-compose run --rm app sh -c "flake8"
+        run: flake8
