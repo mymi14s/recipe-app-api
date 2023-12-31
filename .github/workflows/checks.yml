@@ -16,6 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
-        run: cd app && python manage.py test
+        run: docker-compose build
+      - name: Test
+        run: source /py/bin/activate && cd app && python manage.py test
       - name: Lint
         run: cd app && flake8
